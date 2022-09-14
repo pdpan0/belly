@@ -2,15 +2,11 @@ server:
   servlet:
     context-path: /api
 spring:
+  profiles:
+    active: dev
   banner:
     location: classpath:static/banner.txt
-  datasource:
-    driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/belly
-    username: admin
-    password: pdpano
   jpa:
-    database-platform: org.hibernate.dialect.PostgreSQLDialect
     properties:
       hibernate:
         show_sql: true
