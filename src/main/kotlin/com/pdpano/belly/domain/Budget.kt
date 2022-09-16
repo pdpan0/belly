@@ -1,12 +1,12 @@
-package com.pdpano.belly.domain.ships
+package com.pdpano.belly.domain
 
+import java.math.BigDecimal
 import java.time.LocalDateTime
 
-class Ship(
+abstract class Budget(
     val id: Long,
-    val name: String,
     val description: String,
-    val logo: String?,
+    val amount: BigDecimal,
     val createdAt: LocalDateTime = LocalDateTime.now(),
-    val createdBy: String
+    val id_ship: Long,
 )
