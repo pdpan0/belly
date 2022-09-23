@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans
+        xmlns="http://www.springframework.org/schema/beans"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="
+                http://www.springframework.org/schema/beans
+                http://www.springframework.org/schema/beans/spring-beans.xsd">
+    <bean id="ship-controller" class="com.pdpano.belly.adapters.ships.ShipController">
+        <constructor-arg index="0" ref="save-ship-usecase" />
+    </bean>
+
+    <bean id="save-ship-usecase" class="com.pdpano.belly.usecase.ship.saveshipusecase.SaveShipUseCase">
+        <constructor-arg index="0" ref="ship-gateway" />
+    </bean>
+
+    <bean id="ship-gateway" class="com.pdpano.belly.infra.ships.ShipDatabaseGateway">
+    </bean>
+</beans>
