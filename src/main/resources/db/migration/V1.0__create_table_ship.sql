@@ -1,0 +1,8 @@
+CREATE TABLE IF NOT EXISTS tb_ship (
+	id_ship SERIAL PRIMARY KEY,
+    name VARCHAR NOT NULL,
+	description VARCHAR NOT NULL,
+	logo VARCHAR,
+	created_at TIMESTAMP DEFAULT NOW(),
+	created_by VARCHAR NOT NULL
+);
