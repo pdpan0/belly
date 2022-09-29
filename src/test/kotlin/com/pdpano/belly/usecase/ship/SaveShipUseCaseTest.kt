@@ -12,6 +12,7 @@ internal class SaveShipUseCaseTest {
     private val repository: ShipGateway = mockk {
         every { save(any()) } returns 1L
     }
+
     private val saveShipUseCase = SaveShipUseCase(repository)
 
     @Test

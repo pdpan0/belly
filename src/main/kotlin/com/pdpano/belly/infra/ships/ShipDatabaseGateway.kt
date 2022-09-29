@@ -8,12 +8,29 @@ import org.springframework.stereotype.Repository
 class ShipDatabaseGateway(private val repository: ShipRepository): ShipGateway {
     override fun save(ship: Ship): Long {
         return repository.save(ShipSchema(
-            id_ship = null,
+            idShip = null,
             name = ship.name,
             description = ship.description,
             logo = ship.logo,
             createdAt = ship.createdAt,
             createdBy = ship.createdBy
-        )).id_ship!!
+        )).idShip!!
     }
+
+    override fun findShipByIdShip(idShip: Long): Ship? {
+        val ship = repository.findById(idShip)
+        return if (ship.isPresent) ship.get().let(::mapToDomain) else null
+    }
+
+    override fun existsById(idShip: Long): Boolean = repository.existsById(idShip)
+
+    private fun mapToDomain(schema: ShipSchema): Ship =
+        Ship(
+            idShip = schema.idShip,
+            name = schema.name,
+            description = schema.description,
+            logo = schema.logo,
+            createdAt = schema.createdAt,
+            createdBy = schema.createdBy
+        )
 }

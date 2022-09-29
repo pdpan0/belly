@@ -5,9 +5,9 @@ import java.math.BigDecimal
 import java.time.LocalDateTime
 
 class Expense(
-    id: Long,
+    idExpense: Long?,
     description: String,
     amount: BigDecimal,
     createdAt: LocalDateTime = LocalDateTime.now(),
     idShip: Long
-): Budget(id, description, amount, createdAt, idShip)
+): Budget(idExpense, description, amount, createdAt, idShip)

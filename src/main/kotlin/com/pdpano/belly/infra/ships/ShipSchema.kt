@@ -13,7 +13,7 @@ import javax.persistence.Id
 @Entity(name = "tb_ship")
 class ShipSchema(
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val id_ship: Long?,
+    val idShip: Long?,
     val name: String,
     val description: String,
     val logo: String? = null,

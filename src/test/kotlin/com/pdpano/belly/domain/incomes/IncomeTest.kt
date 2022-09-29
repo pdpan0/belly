@@ -1,16 +1,28 @@
 package com.pdpano.belly.domain.incomes
 
-import com.pdpano.belly.domain.expenses.Expense
 import org.junit.jupiter.api.Assertions.*
+import org.junit.jupiter.api.Test
 import java.math.BigDecimal
 
 internal class IncomeTest {
+    @Test
     fun `should create income instance`() =
         assertDoesNotThrow { Income(
-            id = 1,
+            idIncome = 1,
             description = "Salário",
             amount = BigDecimal(2000),
             idShip = 1
         ) }
+
+    @Test
+    fun `should validate amount negative value`() =
+        assertDoesNotThrow {
+            Income(
+                idIncome = 1,
+                description = "Sálario",
+                amount = BigDecimal(-200),
+                idShip = 1
+            )
+        }
 }
 
