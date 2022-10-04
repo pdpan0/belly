@@ -14,6 +14,7 @@ internal class IncomeTest {
             idShip = 1
         ) }
 
+    //TODO: Inverter o assertDoesNotThrow
     @Test
     fun `should validate amount negative value`() =
         assertDoesNotThrow {
@@ -21,6 +22,17 @@ internal class IncomeTest {
                 idIncome = 1,
                 description = "Sálario",
                 amount = BigDecimal(-200),
+                idShip = 1
+            )
+        }
+
+    @Test
+    fun `should validate description is blank or empty`() =
+        assertDoesNotThrow {
+            Income(
+                idIncome = 1,
+                description = "   ",
+                amount = BigDecimal(2000),
                 idShip = 1
             )
         }

@@ -1,7 +1,7 @@
 package com.pdpano.belly.adapters.ships
 
-import com.pdpano.belly.usecase.ship.saveshipusecase.SaveShipInput
-import com.pdpano.belly.usecase.ship.saveshipusecase.SaveShipUseCase
+import com.pdpano.belly.usecase.ships.saveshipusecase.SaveShipInput
+import com.pdpano.belly.usecase.ships.saveshipusecase.SaveShipUseCase
 import org.springframework.web.bind.annotation.PostMapping
 import org.springframework.web.bind.annotation.RequestBody
 import org.springframework.web.bind.annotation.RequestMapping

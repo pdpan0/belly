@@ -14,4 +14,8 @@ class IncomeDatabaseGateway(private val repository: IncomeRepository): IncomeGat
             idShip = budget.idShip
         )).idIncome!!
     }
+
+    override fun existsByDescriptionAndCurrentMonth(description: String): Boolean {
+        return repository.existsByDescriptionAndCurrentMonth(description)
+    }
 }

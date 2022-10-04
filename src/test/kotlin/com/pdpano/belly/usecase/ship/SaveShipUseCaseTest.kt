@@ -1,8 +1,8 @@
 package com.pdpano.belly.usecase.ship
 
 import com.pdpano.belly.domain.ships.ShipGateway
-import com.pdpano.belly.usecase.ship.saveshipusecase.SaveShipInput
-import com.pdpano.belly.usecase.ship.saveshipusecase.SaveShipUseCase
+import com.pdpano.belly.usecase.ships.saveshipusecase.SaveShipInput
+import com.pdpano.belly.usecase.ships.saveshipusecase.SaveShipUseCase
 import io.mockk.every
 import io.mockk.mockk
 import org.junit.jupiter.api.Assertions.*

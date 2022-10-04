@@ -5,7 +5,9 @@ import com.pdpano.belly.domain.incomes.Income
 import com.pdpano.belly.domain.incomes.IncomeGateway
 import com.pdpano.belly.domain.ships.ShipGateway
 import com.pdpano.belly.usecase.UseCase
+import org.springframework.stereotype.Service
 
+@Service
 class SaveIncomeUseCase(
     private val gateway: IncomeGateway,
     private val shipGateway: ShipGateway
@@ -13,6 +15,9 @@ class SaveIncomeUseCase(
     override fun execute(input: SaveIncomeInput): Long {
         if (!shipGateway.existsById(input.idShip))
             throw NotFoundException("Ship")
+
+        if (gateway.existsByDescriptionAndCurrentMonth(input.description))
+            throw IllegalArgumentException("Invalid description")
 
         return gateway.save(Income(
             idIncome = null,
