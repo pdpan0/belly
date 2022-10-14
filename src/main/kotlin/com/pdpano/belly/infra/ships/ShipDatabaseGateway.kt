@@ -24,6 +24,8 @@ class ShipDatabaseGateway(private val repository: ShipRepository): ShipGateway {
 
     override fun existsById(idShip: Long): Boolean = repository.existsById(idShip)
 
+    override fun getShips(): List<Ship> = repository.findAll().map(::mapToDomain)
+
     private fun mapToDomain(schema: ShipSchema): Ship =
         Ship(
             idShip = schema.idShip,

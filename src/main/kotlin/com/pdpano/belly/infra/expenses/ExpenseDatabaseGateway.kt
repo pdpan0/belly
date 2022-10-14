@@ -1,13 +1,11 @@
-package com.pdpano.belly.infra.incomes
+package com.pdpano.belly.infra.expenses
 
 import com.pdpano.belly.domain.Budget
-import com.pdpano.belly.domain.incomes.IncomeGateway
-import com.pdpano.belly.infra.expenses.ExpenseSchema
-import com.pdpano.belly.infra.expenses.ExpenseRepository
+import com.pdpano.belly.domain.expenses.ExpenseGateway
 import org.springframework.stereotype.Repository
 
 @Repository
-class IncomeDatabaseGateway(private val repository: ExpenseRepository): IncomeGateway {
+class ExpenseDatabaseGateway(private val repository: ExpenseRepository): ExpenseGateway {
     override fun save(budget: Budget): Long {
         return repository.save(
             ExpenseSchema(

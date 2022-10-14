@@ -1,16 +1,15 @@
-package com.pdpano.belly.infra.incomes
+package com.pdpano.belly.infra.expenses
 
-import com.pdpano.belly.infra.expenses.ExpenseSchema
 import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.data.jpa.repository.Query
 
-interface IncomeRepository: JpaRepository<ExpenseSchema, Long> {
+interface ExpenseRepository: JpaRepository<ExpenseSchema, Long> {
 
     @Query(
         value = """
            select exists (
-              select id_income 
-              from tb_incomes 
+              select id_expense 
+              from tb_expenses 
               where description = ?1 
               and created_at 
                  between date_trunc('month', now())::date 

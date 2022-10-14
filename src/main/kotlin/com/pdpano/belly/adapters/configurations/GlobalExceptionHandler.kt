@@ -14,4 +14,9 @@ class GlobalExceptionHandler {
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
     fun handleException(req: HttpServletRequest, e: Exception): ResponseMessage =
         ResponseMessage(false, e.cause.toString(), e.message, null)
+
+    @ExceptionHandler(IllegalArgumentException::class)
+    @ResponseStatus(HttpStatus.BAD_REQUEST)
+    fun handleIllegalArgumentException(req: HttpServletRequest, e: IllegalArgumentException) =
+        ResponseMessage(false, e.cause.toString(), e.message, null)
 }

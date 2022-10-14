@@ -10,11 +10,11 @@ import org.springframework.web.bind.annotation.RestController
 
 @Suppress("unused")
 @RestController
-@RequestMapping("/v1/incomes")
-class IncomeController(private val saveIncomeUseCase: SaveExpenseUseCase) {
+@RequestMapping("/v1/expenses")
+class ExpenseController(private val saveExpenseUseCase: SaveExpenseUseCase) {
 
     @PostMapping
-    fun saveIncome(@RequestBody income: SaveExpenseInput): ResponseEntity<Long> {
-        return ResponseEntity.ok(saveIncomeUseCase.execute(income))
+    fun saveIncome(@RequestBody input: SaveExpenseInput): ResponseEntity<Long> {
+        return ResponseEntity.ok(saveExpenseUseCase.execute(input))
     }
 }
