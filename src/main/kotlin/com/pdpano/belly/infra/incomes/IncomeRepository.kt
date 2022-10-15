@@ -1,10 +1,9 @@
 package com.pdpano.belly.infra.incomes
 
-import com.pdpano.belly.infra.expenses.ExpenseSchema
 import org.springframework.data.jpa.repository.JpaRepository
 import org.springframework.data.jpa.repository.Query
 
-interface IncomeRepository: JpaRepository<ExpenseSchema, Long> {
+interface IncomeRepository: JpaRepository<IncomeSchema, Long> {
 
     @Query(
         value = """

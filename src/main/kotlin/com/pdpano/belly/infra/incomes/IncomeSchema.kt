@@ -1,6 +1,7 @@
 package com.pdpano.belly.infra.incomes
 
 import java.math.BigDecimal
+import java.time.LocalDateTime
 import javax.persistence.Entity
 import javax.persistence.GeneratedValue
 import javax.persistence.GenerationType
@@ -17,4 +18,5 @@ class IncomeSchema(
     val description: String,
     val amount: BigDecimal,
     val idShip: Long,
+    val createdAt: LocalDateTime = LocalDateTime.now(),
 )
