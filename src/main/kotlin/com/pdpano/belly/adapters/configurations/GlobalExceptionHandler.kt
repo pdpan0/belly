@@ -1,5 +1,7 @@
 package com.pdpano.belly.adapters.configurations
 
+import com.pdpano.belly.domain.NotFoundException
+import mu.KotlinLogging
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.ExceptionHandler
 import org.springframework.web.bind.annotation.ResponseStatus
@@ -9,14 +11,26 @@ import javax.servlet.http.HttpServletRequest
 @Suppress("unused")
 @RestControllerAdvice
 class GlobalExceptionHandler {
+    private val logger = KotlinLogging.logger {}
 
     @ExceptionHandler
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
-    fun handleException(req: HttpServletRequest, e: Exception): ResponseMessage =
-        ResponseMessage(false, e.cause.toString(), e.message, null)
+    fun handleException(req: HttpServletRequest, e: Exception): ResponseErrorMessage =
+        ResponseErrorMessage(false, e.cause.toString(), e.message, null)
 
     @ExceptionHandler(IllegalArgumentException::class)
     @ResponseStatus(HttpStatus.BAD_REQUEST)
     fun handleIllegalArgumentException(req: HttpServletRequest, e: IllegalArgumentException) =
-        ResponseMessage(false, e.cause.toString(), e.message, null)
+        ResponseErrorMessage(false, e.cause.toString(), e.message, null)
+
+    @ExceptionHandler(NotFoundException::class)
+    @ResponseStatus(HttpStatus.NOT_FOUND)
+    fun handleNotFoundException(req: HttpServletRequest, e: NotFoundException): ResponseErrorMessage {
+        logger.trace { "This is trace log" }
+        logger.debug { "This is debug log" }
+        logger.info { "This is info log" }
+        logger.warn { "This is warn log" }
+        logger.error { "This is error log" }
+        return ResponseErrorMessage(false, e.cause.toString(), e.message, null)
+    }
 }
