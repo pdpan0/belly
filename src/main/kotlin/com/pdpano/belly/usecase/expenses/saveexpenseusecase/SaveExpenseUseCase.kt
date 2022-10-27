@@ -19,7 +19,7 @@ class SaveExpenseUseCase(
             throw NotFoundException("Ship")
 
         if (gateway.existsByDescriptionAndCurrentMonth(input.description))
-            throw IllegalArgumentException("Invalid description")
+            throw IllegalArgumentException("Already exists a expense with same description in current month.")
 
         return gateway.save(Expense(
             idExpense = null,

@@ -1,4 +1,3 @@
 package com.pdpano.belly.domain
 
-class NotFoundException(research: String): Exception("Recurso: $research não encontrado.") {
-}
+class NotFoundException(research: String): Exception("Research: $research was not found.")

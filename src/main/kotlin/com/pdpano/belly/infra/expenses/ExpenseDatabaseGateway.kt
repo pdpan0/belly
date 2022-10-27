@@ -6,6 +6,8 @@ import com.pdpano.belly.domain.expenses.ExpenseGateway
 import com.pdpano.belly.domain.incomes.Income
 import com.pdpano.belly.infra.incomes.IncomeSchema
 import org.springframework.stereotype.Repository
+import java.time.LocalDate
+import java.time.YearMonth
 
 @Repository
 class ExpenseDatabaseGateway(private val repository: ExpenseRepository): ExpenseGateway {
@@ -20,7 +22,12 @@ class ExpenseDatabaseGateway(private val repository: ExpenseRepository): Expense
     }
 
     override fun existsByDescriptionAndCurrentMonth(description: String): Boolean {
-        return repository.existsByDescriptionAndCurrentMonth(description)
+        val month = YearMonth.from(LocalDate.now())
+        return repository.existsByDescriptionAndMonth(
+            description,
+            month.atDay(1).atTime(0,0),
+            month.atEndOfMonth().atTime(0,0)
+        )
     }
 
     override fun findAllBudget(): List<Expense> =

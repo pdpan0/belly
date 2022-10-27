@@ -17,7 +17,7 @@ class SaveIncomeUseCase(
             throw NotFoundException("Ship")
 
         if (gateway.existsByDescriptionAndCurrentMonth(input.description))
-            throw IllegalArgumentException("Invalid description")
+            throw IllegalArgumentException("Already exists a income with same description in current month.")
 
         return gateway.save(Income(
             idIncome = null,

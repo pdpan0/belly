@@ -26,9 +26,12 @@ class ShipController(
 ) {
 
     @PostMapping
-    fun saveShip(@RequestBody input: SaveShipInput): ResponseEntity<ResponseMessage<Long>> =
-        ResponseEntity.created(URI("/v1/ships/{idShip}")).body(
-            ResponseMessage(success = true, response = saveShipUseCase.execute(input)))
+    fun saveShip(@RequestBody input: SaveShipInput): ResponseEntity<ResponseMessage<Long>> {
+        val idShip = saveShipUseCase.execute(input)
+        return ResponseEntity.created(URI("/v1/ships/$idShip")).body(
+            ResponseMessage(success = true, response = idShip)
+        )
+    }
 
     @GetMapping
     fun getShips(): ResponseEntity<ResponseMessage<List<Ship>>> =

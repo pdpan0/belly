@@ -11,7 +11,7 @@ import javax.persistence.Id
  * Income Schema
  */
 
-@Entity
+@Entity(name = "tb_incomes")
 class IncomeSchema(
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     val idIncome: Long?,

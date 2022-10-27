@@ -25,12 +25,7 @@ class GlobalExceptionHandler {
 
     @ExceptionHandler(NotFoundException::class)
     @ResponseStatus(HttpStatus.NOT_FOUND)
-    fun handleNotFoundException(req: HttpServletRequest, e: NotFoundException): ResponseErrorMessage {
-        logger.trace { "This is trace log" }
-        logger.debug { "This is debug log" }
-        logger.info { "This is info log" }
-        logger.warn { "This is warn log" }
-        logger.error { "This is error log" }
-        return ResponseErrorMessage(false, e.cause.toString(), e.message, null)
-    }
+    fun handleNotFoundException(req: HttpServletRequest, e: NotFoundException): ResponseErrorMessage =
+        ResponseErrorMessage(false, e.cause.toString(), e.message, null)
+    
 }

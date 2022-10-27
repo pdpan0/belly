@@ -11,7 +11,7 @@ import javax.persistence.Id
  * Expense Schema
  */
 
-@Entity
+@Entity(name = "tb_expenses")
 class ExpenseSchema(
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     val idIncome: Long?,
