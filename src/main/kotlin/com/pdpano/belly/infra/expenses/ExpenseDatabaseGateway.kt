@@ -3,8 +3,6 @@ package com.pdpano.belly.infra.expenses
 import com.pdpano.belly.domain.Budget
 import com.pdpano.belly.domain.expenses.Expense
 import com.pdpano.belly.domain.expenses.ExpenseGateway
-import com.pdpano.belly.domain.incomes.Income
-import com.pdpano.belly.infra.incomes.IncomeSchema
 import org.springframework.stereotype.Repository
 import java.time.LocalDate
 import java.time.YearMonth
@@ -14,11 +12,11 @@ class ExpenseDatabaseGateway(private val repository: ExpenseRepository): Expense
     override fun save(budget: Budget): Long {
         return repository.save(
             ExpenseSchema(
-            idIncome = null,
+            idExpense = null,
             description = budget.description,
             amount = budget.amount,
             idShip = budget.idShip
-        )).idIncome!!
+        )).idExpense!!
     }
 
     override fun existsByDescriptionAndCurrentMonth(description: String): Boolean {
@@ -30,10 +28,23 @@ class ExpenseDatabaseGateway(private val repository: ExpenseRepository): Expense
         )
     }
 
+    override fun findBudgetById(idBudget: Long): Expense {
+        return repository.findById(idBudget).get().mapToDomain()
+    }
+
     override fun findAllBudget(): List<Expense> =
         repository.findAll().map { it.mapToDomain() }
 
+    override fun updateBudget(budget: Budget) {
+        repository.save(ExpenseSchema(
+            idExpense = budget.id,
+            description = budget.description,
+            amount = budget.amount,
+            idShip = budget.idShip
+        ))
+    }
+
     private fun ExpenseSchema.mapToDomain(): Expense =
-        Expense(idIncome, description, amount, createdAt, idShip)
+        Expense(idExpense, description, amount, createdAt, idShip)
 
 }

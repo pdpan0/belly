@@ -14,7 +14,7 @@ import javax.persistence.Id
 @Entity(name = "tb_expenses")
 class ExpenseSchema(
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val idIncome: Long?,
+    val idExpense: Long?,
     val description: String,
     val amount: BigDecimal,
     val idShip: Long,

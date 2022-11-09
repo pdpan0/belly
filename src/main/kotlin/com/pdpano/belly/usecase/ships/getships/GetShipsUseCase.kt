@@ -1,4 +1,4 @@
-package com.pdpano.belly.usecase.ships.getshipsusecase
+package com.pdpano.belly.usecase.ships.getships
 
 import com.pdpano.belly.domain.ships.Ship
 import com.pdpano.belly.domain.ships.ShipGateway

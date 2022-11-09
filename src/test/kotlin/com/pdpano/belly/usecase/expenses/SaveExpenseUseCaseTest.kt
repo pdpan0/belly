@@ -1,8 +1,9 @@
-package com.pdpano.belly.usecase.expense.saveexpenseusecase
+package com.pdpano.belly.usecase.expenses
 
 import com.pdpano.belly.domain.expenses.ExpenseGateway
 import com.pdpano.belly.domain.ships.ShipGateway
-import com.pdpano.belly.usecase.expenses.saveexpenseusecase.SaveExpenseInput
+import com.pdpano.belly.usecase.expense.saveexpenseusecase.SaveExpenseUseCase
+import com.pdpano.belly.usecase.expenses.saveexpense.SaveExpenseInput
 import io.mockk.every
 import io.mockk.mockk
 import org.junit.jupiter.api.Assertions.*
@@ -20,7 +21,7 @@ internal class SaveExpenseUseCaseTest {
         every { existsById(any()) } returns true
     }
 
-    private val saveExpense = SaveExpenseUseCase(gateway, shipGateway)
+    private val saveExpenseUseCase = SaveExpenseUseCase(gateway, shipGateway)
 
     @Test
     fun `should save a expense in table`() {
@@ -30,7 +31,7 @@ internal class SaveExpenseUseCaseTest {
             idShip = 1
         )
 
-        assertEquals(1L, saveExpense.execute(expense))
+        assertEquals(1L, saveExpenseUseCase.execute(expense))
     }
 
     @Test
@@ -42,7 +43,7 @@ internal class SaveExpenseUseCaseTest {
         )
 
         assertThrows(IllegalArgumentException::class.java) {
-            saveExpense.execute(expense)
+            saveExpenseUseCase.execute(expense)
         }
     }
 

@@ -2,11 +2,11 @@ package com.pdpano.belly.adapters.ships
 
 import com.pdpano.belly.adapters.configurations.ResponseMessage
 import com.pdpano.belly.domain.ships.Ship
-import com.pdpano.belly.usecase.ships.getshipbyidusecase.GetShipByIdInput
-import com.pdpano.belly.usecase.ships.getshipbyidusecase.GetShipByIdUseCase
-import com.pdpano.belly.usecase.ships.getshipsusecase.GetShipsUseCase
-import com.pdpano.belly.usecase.ships.saveshipusecase.SaveShipInput
-import com.pdpano.belly.usecase.ships.saveshipusecase.SaveShipUseCase
+import com.pdpano.belly.usecase.ships.getshipbyid.GetShipByIdInput
+import com.pdpano.belly.usecase.ships.getshipbyid.GetShipByIdUseCase
+import com.pdpano.belly.usecase.ships.getships.GetShipsUseCase
+import com.pdpano.belly.usecase.ships.saveship.SaveShipInput
+import com.pdpano.belly.usecase.ships.saveship.SaveShipUseCase
 import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.GetMapping
 import org.springframework.web.bind.annotation.PathVariable

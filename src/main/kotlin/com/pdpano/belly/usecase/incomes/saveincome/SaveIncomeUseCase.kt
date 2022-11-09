@@ -1,6 +1,7 @@
-package com.pdpano.belly.usecase.incomes.saveincomeusecase
+package com.pdpano.belly.usecase.incomes.saveincome
 
-import com.pdpano.belly.domain.NotFoundException
+import com.pdpano.belly.domain.exceptions.ConflictException
+import com.pdpano.belly.domain.exceptions.NotFoundException
 import com.pdpano.belly.domain.incomes.Income
 import com.pdpano.belly.domain.incomes.IncomeGateway
 import com.pdpano.belly.domain.ships.ShipGateway
@@ -17,7 +18,7 @@ class SaveIncomeUseCase(
             throw NotFoundException("Ship")
 
         if (gateway.existsByDescriptionAndCurrentMonth(input.description))
-            throw IllegalArgumentException("Already exists a income with same description in current month.")
+            throw ConflictException("INCOME", "Already exists a income with same description in current month.")
 
         return gateway.save(Income(
             idIncome = null,

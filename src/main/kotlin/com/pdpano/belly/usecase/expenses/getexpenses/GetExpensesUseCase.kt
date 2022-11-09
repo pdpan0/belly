@@ -1,4 +1,4 @@
-package com.pdpano.belly.usecase.expenses.getexpensesusecase
+package com.pdpano.belly.usecase.expenses.getexpenses
 
 import com.pdpano.belly.domain.expenses.Expense
 import com.pdpano.belly.domain.expenses.ExpenseGateway

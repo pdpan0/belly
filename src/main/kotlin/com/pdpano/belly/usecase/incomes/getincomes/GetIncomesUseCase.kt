@@ -1,4 +1,4 @@
-package com.pdpano.belly.usecase.incomes.getincomesusecase
+package com.pdpano.belly.usecase.incomes.getincomes
 
 import com.pdpano.belly.domain.incomes.Income
 import com.pdpano.belly.domain.incomes.IncomeGateway

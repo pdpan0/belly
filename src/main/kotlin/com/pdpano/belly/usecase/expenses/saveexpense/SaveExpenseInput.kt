@@ -1,4 +1,4 @@
-package com.pdpano.belly.usecase.expenses.saveexpenseusecase
+package com.pdpano.belly.usecase.expenses.saveexpense
 
 import java.math.BigDecimal
 

@@ -1,4 +1,4 @@
-package com.pdpano.belly.usecase.ships.saveshipusecase
+package com.pdpano.belly.usecase.ships.saveship
 
 data class SaveShipInput(
     val name: String,

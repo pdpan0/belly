@@ -1,6 +1,7 @@
-package com.pdpano.belly.usecase.ships.getshipsusecase
+package com.pdpano.belly.usecase.ships
 
 import com.pdpano.belly.domain.ships.ShipGateway
+import com.pdpano.belly.usecase.ships.getships.GetShipsUseCase
 import io.mockk.every
 import io.mockk.mockk
 import io.mockk.verify

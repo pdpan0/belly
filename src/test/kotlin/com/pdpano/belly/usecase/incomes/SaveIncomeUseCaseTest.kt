@@ -2,8 +2,8 @@ package com.pdpano.belly.usecase.incomes
 
 import com.pdpano.belly.domain.incomes.IncomeGateway
 import com.pdpano.belly.domain.ships.ShipGateway
-import com.pdpano.belly.usecase.incomes.saveincomeusecase.SaveIncomeInput
-import com.pdpano.belly.usecase.incomes.saveincomeusecase.SaveIncomeUseCase
+import com.pdpano.belly.usecase.incomes.saveincome.SaveIncomeInput
+import com.pdpano.belly.usecase.incomes.saveincome.SaveIncomeUseCase
 import io.mockk.every
 import io.mockk.mockk
 import org.junit.jupiter.api.Assertions.*

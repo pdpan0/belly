@@ -7,4 +7,6 @@ interface IncomeGateway: BudgetFactory {
     override fun save(budget: Budget): Long
     override fun existsByDescriptionAndCurrentMonth(description: String): Boolean
     override fun findAllBudget(): List<Income>
+    override fun findBudgetById(idBudget: Long): Income
+    override fun updateBudget(budget: Budget)
 }
