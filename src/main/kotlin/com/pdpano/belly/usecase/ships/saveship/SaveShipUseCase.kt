@@ -1,4 +1,4 @@
-package com.pdpano.belly.usecase.ship.saveshipusecase
+package com.pdpano.belly.usecase.ships.saveship
 
 import com.pdpano.belly.domain.ships.Ship
 import com.pdpano.belly.domain.ships.ShipGateway
@@ -10,7 +10,7 @@ class SaveShipUseCase(private val shipGateway: ShipGateway): UseCase<SaveShipInp
     override fun execute(input: SaveShipInput): Long {
         return shipGateway.save(
             Ship(
-                id_ship = null,
+                idShip = null,
                 name = input.name,
                 description = input.description,
                 logo = input.logo,

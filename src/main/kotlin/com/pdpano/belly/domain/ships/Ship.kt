@@ -3,7 +3,7 @@ package com.pdpano.belly.domain.ships
 import java.time.LocalDateTime
 
 class Ship(
-    val id_ship: Long?,
+    val idShip: Long?,
     val name: String,
     description: String,
     val logo: String? = null,

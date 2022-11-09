@@ -1,5 +1,6 @@
-package com.pdpano.belly.infra.ships
+package com.pdpano.belly.infra.incomes
 
+import java.math.BigDecimal
 import java.time.LocalDateTime
 import javax.persistence.Entity
 import javax.persistence.GeneratedValue
@@ -7,16 +8,15 @@ import javax.persistence.GenerationType
 import javax.persistence.Id
 
 /**
- * Ship Schema
+ * Income Schema
  */
 
-@Entity(name = "tb_ship")
-class ShipSchema(
+@Entity(name = "tb_incomes")
+class IncomeSchema(
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    val idShip: Long?,
-    val name: String,
+    val idIncome: Long?,
     val description: String,
-    val logo: String? = null,
+    val amount: BigDecimal,
+    val idShip: Long,
     val createdAt: LocalDateTime = LocalDateTime.now(),
-    val createdBy: String
 )

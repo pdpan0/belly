@@ -6,8 +6,3 @@ spring:
     active: dev
   banner:
     location: classpath:static/banner.txt
-  jpa:
-    properties:
-      hibernate:
-        show_sql: true
-        format_sql: true

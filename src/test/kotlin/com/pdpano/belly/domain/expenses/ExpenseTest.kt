@@ -8,9 +8,20 @@ internal class ExpenseTest {
     @Test
     fun `should create expense instance`() =
         assertDoesNotThrow { Expense(
-            id = 1,
+            idExpense = 1,
             description = "Conta de luz",
             amount = BigDecimal(500),
             idShip = 1
         ) }
+
+    @Test
+    fun `should validate amount negative value`() =
+        assertDoesNotThrow {
+            Expense(
+                idExpense = 1,
+                description = "Gastos com comida",
+                amount = BigDecimal(-200),
+                idShip = 1
+            )
+        }
 }
