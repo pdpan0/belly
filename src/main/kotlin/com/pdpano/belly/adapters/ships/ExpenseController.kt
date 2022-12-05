@@ -43,8 +43,8 @@ class ExpenseController(
     }
 
     @PutMapping("/{idExpense}")
-    fun updateExpense(@PathVariable("idExpense") idExpense: Long, expense: UpdateExpenseInput): ResponseEntity<ResponseMessage<Nothing>> {
-        updateExpenseUseCase.execute(input = expense)
+    fun updateExpense(@PathVariable("idExpense") idExpense: Long, request: UpdateExpenseInput): ResponseEntity<ResponseMessage<Nothing>> {
+        updateExpenseUseCase.execute(input = request)
         return ResponseEntity.noContent().build()
     }
 
